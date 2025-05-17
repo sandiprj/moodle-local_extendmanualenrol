@@ -23,7 +23,7 @@
  * to ensure reasonable request lengths.
  *
  * @package    local_extendmanualenrol
- * @copyright  2025 Sandip R <sandipr@meditab.com>
+ * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -37,7 +37,7 @@ require_once($CFG->libdir.'/formslib.php');
  * Extension request form
  *
  * @package    local_extendmanualenrol
- * @copyright  2025 Sandip R <sandipr@meditab.com>
+ * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class request_form extends \moodleform {
@@ -58,7 +58,7 @@ class request_form extends \moodleform {
         $mform->addRule('daysrequested', null, 'nonzero', null, 'client');
 
         $mform->addElement('textarea', 'reason', get_string('extensionreason', 'local_extendmanualenrol'),
-                          array('rows' => 5, 'cols' => 50));
+                    array('rows' => 5, 'cols' => 50));
         $mform->setType('reason', PARAM_TEXT);
         $mform->addRule('reason', null, 'required', null, 'client');
 
@@ -83,7 +83,6 @@ class request_form extends \moodleform {
                 $errors['daysrequested'] = get_string('error');
             }
         }
-        
         return $errors;
     }
 }

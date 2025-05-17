@@ -1,6 +1,6 @@
 # Manual Enrolment Extension Plugin
 
-This plugin allows students to request extensions for their manual course enrolments and enables teachers/managers to approve or deny these requests.
+This plugin allows students with manual course enrollments that have an end date to request extensions, and enables teachers/managers to approve or deny these requests. The extension request option is only visible to students who are enrolled via manual enrollment and have a set end date for their enrollment.
 
 ## Features
 

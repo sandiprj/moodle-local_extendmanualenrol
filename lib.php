@@ -22,7 +22,7 @@
  * manual enrolments.
  *
  * @package    local_extendmanualenrol
- * @copyright  2025 Sandip R <sandipr@meditab.com>
+ * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -36,20 +36,35 @@ defined('MOODLE_INTERNAL') || die();
  * @param context $context The course context
  */
 function local_extendmanualenrol_extend_navigation_course($navigation, $course, $context) {
-    global $USER;
+    global $USER, $DB;
     
-    // Check if user is enrolled via manual enrolment
+    // Check if user is enrolled via manual enrolment and has an end date
     $instances = enrol_get_instances($course->id, true);
     $manualenrolled = false;
+    $hasendate = false;
+    
     foreach ($instances as $instance) {
         if ($instance->enrol === 'manual') {
-            $manualenrolled = is_enrolled($context, $USER->id, '', true);
-            break;
+            $ue = $DB->get_record('user_enrolments', [
+                'enrolid' => $instance->id,
+                'userid' => $USER->id,
+                'status' => ENROL_USER_ACTIVE
+            ]);
+            
+            if ($ue && is_enrolled($context, $USER->id, '', true)) {
+                $manualenrolled = true;
+                if (!empty($ue->timeend)) {
+                    $hasendate = true;
+                }
+                break;
+            }
         }
     }
 
-    // Add request extension link for students
-    if (has_capability('local/extendmanualenrol:requestextension', $context) && $manualenrolled) {
+    // Add request extension link for students who have an end date
+    if (has_capability('local/extendmanualenrol:requestextension', $context) 
+        && $manualenrolled 
+        && $hasendate) {
         $url = new moodle_url('/local/extendmanualenrol/request.php', ['courseid' => $course->id]);
         $navigation->add(
             get_string('requestextension', 'local_extendmanualenrol'),

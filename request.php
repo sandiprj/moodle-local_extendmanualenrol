@@ -22,7 +22,7 @@
  * number of days needed and provide a reason for the extension.
  *
  * @package    local_extendmanualenrol
- * @copyright  2025 Sandip R <sandipr@meditab.com>
+ * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -33,18 +33,13 @@ require_once($CFG->libdir . '/accesslib.php');
 require_once($CFG->dirroot . '/lib/classes/context/course.php');
 
 $courseid = required_param('courseid', PARAM_INT);
-
 $course = $DB->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
 require_login($course);
-
-// Get proper course context
 $coursecontext = context_course::instance($course->id);
 if (!$coursecontext) {
     throw new moodle_exception('nocontext', 'error');
 }
 require_capability('local/extendmanualenrol:requestextension', $coursecontext);
-
-// Check if user already has a pending request
 if (\local_extendmanualenrol\manager::has_pending_requests($courseid, $USER->id)) {
     redirect(
         new moodle_url('/course/view.php', ['id' => $courseid]),

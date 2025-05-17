@@ -23,7 +23,7 @@
  * - Managing extension requests (for teachers and managers)
  *
  * @package    local_extendmanualenrol
- * @copyright  2025 Sandip R <sandipr@meditab.com>
+ * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

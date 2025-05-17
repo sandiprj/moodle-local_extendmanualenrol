@@ -22,7 +22,7 @@
  * extend the student's manual course enrolment by the requested number of days.
  *
  * @package    local_extendmanualenrol
- * @copyright  2025 Sandip R <sandipr@meditab.com>
+ * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
