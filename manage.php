@@ -15,8 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Extension management page for local_extendmanualenrol
- * 
+ * Extension management page for local_extendmanualenrol.
+ *
  * This page provides an interface for teachers and managers to review, approve,
  * or deny extension requests from students. Approved requests automatically
  * extend the student's manual course enrolment by the requested number of days.
@@ -38,7 +38,7 @@ $requestid = optional_param('requestid', 0, PARAM_INT);
 $course = $DB->get_record('course', ['id' => $courseid], '*', MUST_EXIST);
 require_login($course);
 
-// Get proper course context
+// Get proper course context.
 $coursecontext = context_course::instance($course->id);
 require_capability('local/extendmanualenrol:manageextensions', $coursecontext);
 
@@ -47,7 +47,7 @@ $PAGE->set_context($coursecontext);
 $PAGE->set_title($course->shortname . ': ' . get_string('manageextensions', 'local_extendmanualenrol'));
 $PAGE->set_heading($course->fullname);
 
-// Handle actions
+// Handle actions.
 if ($action && $requestid) {
     require_sesskey();
     
@@ -72,7 +72,7 @@ if ($action && $requestid) {
     }
 }
 
-// Get all requests for this course
+// Get all requests for this course.
 $requests = \local_extendmanualenrol\manager::get_course_requests($courseid);
 
 echo $OUTPUT->header();
@@ -88,7 +88,7 @@ if (empty($requests)) {
         get_string('extensionreason', 'local_extendmanualenrol'),
         get_string('status'),
         get_string('timecreated', 'core'),
-        get_string('actions')
+        get_string('actions'),
     ];
     $table->attributes['class'] = 'generaltable';
 
@@ -98,12 +98,12 @@ if (empty($requests)) {
             $approveurl = new moodle_url($PAGE->url, [
                 'action' => 'approve',
                 'requestid' => $request->id,
-                'sesskey' => sesskey()
+                'sesskey' => sesskey(),
             ]);
             $denyurl = new moodle_url($PAGE->url, [
                 'action' => 'deny',
                 'requestid' => $request->id,
-                'sesskey' => sesskey()
+                'sesskey' => sesskey(),
             ]);
             $actionbuttons = html_writer::link($approveurl, get_string('approve', 'local_extendmanualenrol'), 
                                              ['class' => 'btn btn-success mr-2']) .
@@ -117,7 +117,7 @@ if (empty($requests)) {
             format_text($request->reason, FORMAT_MOODLE),
             $request->status,
             userdate($request->timecreated),
-            $actionbuttons
+            $actionbuttons,
         ];
         $table->data[] = $row;
     }

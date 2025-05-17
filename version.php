@@ -15,8 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for local_extendmanualenrol
- * 
+ * Version information for local_extendmanualenrol.
+ *
  * This file defines the current version, required Moodle version,
  * and other meta-data for the manual enrolment extension plugin.
  *
@@ -29,6 +29,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_extendmanualenrol';
 $plugin->version = 2025051100;
-$plugin->requires = 2022112800; // Requires Moodle 4.1+
+$plugin->requires = 2022112800; // Requires Moodle 4.1+.
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = '1.0.0';

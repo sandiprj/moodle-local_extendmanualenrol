@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Extension request manager class for local_extendmanualenrol
+ * Extension request manager class for local_extendmanualenrol.
  *
  * This class provides the core functionality for managing extension requests,
  * including creating new requests, approving or denying requests, and querying
@@ -74,7 +74,7 @@ class manager {
 
         $request = $DB->get_record('local_extendmanualenrol', ['id' => $requestid], '*', MUST_EXIST);
 
-        // Get manual enrolment instance
+        // Get manual enrolment instance.
         $instances = enrol_get_instances($request->courseid, true);
         $manualinstance = null;
         foreach ($instances as $instance) {
@@ -88,24 +88,24 @@ class manager {
             return false;
         }
 
-        // Get user enrolment
+        // Get user enrolment.
         $ue = $DB->get_record('user_enrolments', [
             'enrolid' => $manualinstance->id,
-            'userid' => $request->userid
+            'userid' => $request->userid,
         ]);
 
         if (!$ue) {
             return false;
         }
 
-        // Calculate new end time
+        // Calculate new end time.
         $newendtime = $ue->timeend + ($request->daysrequested * DAYSECS);
 
-        // Update enrolment
+        // Update enrolment.
         $manual = enrol_get_plugin('manual');
         $manual->update_user_enrol($manualinstance, $request->userid, ENROL_USER_ACTIVE, null, $newendtime);
 
-        // Update request status
+        // Update request status.
         $request->status = 'approved';
         $request->approverid = $approverid;
         $request->timeapproved = time();
@@ -148,7 +148,7 @@ class manager {
                 WHERE e.courseid = :courseid
                 ORDER BY e.timecreated DESC";
 
-        return $DB->get_records_sql($sql, ['courseid' => $courseid]);
+        return $DB->get_records_sql($sql, ['courseid' => $courseid,]);
     }
 
     /**
@@ -164,7 +164,7 @@ class manager {
         return $DB->record_exists('local_extendmanualenrol', [
             'courseid' => $courseid,
             'userid' => $userid,
-            'status' => 'pending'
+            'status' => 'pending',
         ]);
     }
 }

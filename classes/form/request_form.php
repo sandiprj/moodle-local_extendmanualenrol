@@ -15,8 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Extension request form definition for local_extendmanualenrol
- * 
+ * Extension request form definition for local_extendmanualenrol.
+ *
  * This form allows students to submit requests for extending their manual course
  * enrolment. It includes fields for specifying the number of days needed and
  * providing a reason for the extension request. The form includes validation
@@ -58,7 +58,11 @@ class request_form extends \moodleform {
         $mform->addRule('daysrequested', null, 'nonzero', null, 'client');
 
         $mform->addElement('textarea', 'reason', get_string('extensionreason', 'local_extendmanualenrol'),
+<<<<<<< HEAD
                     array('rows' => 5, 'cols' => 50));
+=======
+                    ['rows' => 5, 'cols' => 50]);
+>>>>>>> 9e27c78 (Fixed PHP coding style problems)
         $mform->setType('reason', PARAM_TEXT);
         $mform->addRule('reason', null, 'required', null, 'client');
 
@@ -72,7 +76,7 @@ class request_form extends \moodleform {
      * @param array $files
      * @return array
      */
-    function validation($data, $files) {
+    public function validation($data, $files) {
         $errors = parent::validation($data, $files);
         
         if (!empty($data['daysrequested'])) {

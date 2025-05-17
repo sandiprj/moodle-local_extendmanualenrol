@@ -15,8 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Language strings for local_extendmanualenrol
- * 
+ * Language strings for local_extendmanualenrol.
+ *
  * This file contains all the language strings used by the manual enrolment
  * extension plugin, including UI elements, capability descriptions,
  * and notification messages.

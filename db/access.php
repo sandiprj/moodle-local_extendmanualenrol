@@ -15,8 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Capability definitions for local_extendmanualenrol
- * 
+ * Capability definitions for local_extendmanualenrol.
+ *
  * This file defines the capabilities used by the manual enrolment extension plugin.
  * It includes capabilities for:
  * - Requesting enrolment extensions (for students)
@@ -35,8 +35,8 @@ $capabilities = [
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => [
-            'student' => CAP_ALLOW
-        ]
+            'student' => CAP_ALLOW,
+        ],
     ],
 
     'local/extendmanualenrol:manageextensions' => [
@@ -46,7 +46,7 @@ $capabilities = [
         'archetypes' => [
             'teacher' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
-            'manager' => CAP_ALLOW
-        ]
-    ]
+            'manager' => CAP_ALLOW,
+        ],
+    ],
 ];

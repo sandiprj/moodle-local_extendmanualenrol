@@ -15,8 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Library functions for local_extendmanualenrol
- * 
+ * Library functions for local_extendmanualenrol.
+ *
  * This file contains the main functions for the manual enrolment extension plugin.
  * It handles course navigation hooks and provides functionality for extending
  * manual enrolments.
@@ -29,16 +29,16 @@
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Add nodes to course navigation
+ * Add nodes to course navigation.
  *
- * @param navigation_node $navigation The navigation node to extend
- * @param stdClass $course The course object
- * @param context $context The course context
+ * @param navigation_node $navigation The navigation node to extend.
+ * @param stdClass $course The course object.
+ * @param context $context The course context.
  */
 function local_extendmanualenrol_extend_navigation_course($navigation, $course, $context) {
     global $USER, $DB;
     
-    // Check if user is enrolled via manual enrolment and has an end date
+    // Check if user is enrolled via manual enrolment and has an end date.
     $instances = enrol_get_instances($course->id, true);
     $manualenrolled = false;
     $hasendate = false;
@@ -61,7 +61,7 @@ function local_extendmanualenrol_extend_navigation_course($navigation, $course, 
         }
     }
 
-    // Add request extension link for students who have an end date
+    // Add request extension link for students who have an end date.
     if (has_capability('local/extendmanualenrol:requestextension', $context) 
         && $manualenrolled 
         && $hasendate) {
@@ -76,7 +76,7 @@ function local_extendmanualenrol_extend_navigation_course($navigation, $course, 
         );
     }
 
-    // Add manage extensions link for teachers/managers
+    // Add manage extensions link for teachers/managers.
     if (has_capability('local/extendmanualenrol:manageextensions', $context)) {
         $url = new moodle_url('/local/extendmanualenrol/manage.php', ['courseid' => $course->id]);
         $navigation->add(

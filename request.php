@@ -15,8 +15,8 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Extension request page for local_extendmanualenrol
- * 
+ * Extension request page for local_extendmanualenrol.
+ *
  * This page handles the student's request for an extension to their manual
  * course enrolment. It displays a form where students can specify the
  * number of days needed and provide a reason for the extension.
