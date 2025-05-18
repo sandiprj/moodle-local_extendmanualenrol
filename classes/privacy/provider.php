@@ -16,7 +16,7 @@
 
 /**
  * Language strings for local_extendmanualenrol
- * 
+ *
  * This file contains all the language strings used by the manual enrolment
  * extension plugin, including UI elements, capability descriptions,
  * and notification messages.
@@ -30,6 +30,16 @@ namespace local_extendmanualenrol\privacy;
 
 use core_privacy\local\metadata\collection;
 
+/**
+ * Privacy provider for local_extendmanualenrol.
+ *
+ * This class provides the privacy metadata for the local_extendmanualenrol plugin.
+ * It defines what data is stored and how it can be accessed or deleted.
+ *
+ * @package    local_extendmanualenrol
+ * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class provider implements \core_privacy\local\metadata\provider {
 
     /**
@@ -58,4 +68,3 @@ class provider implements \core_privacy\local\metadata\provider {
         return $collection;
     }
 }
-

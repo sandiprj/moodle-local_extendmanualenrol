@@ -58,11 +58,7 @@ class request_form extends \moodleform {
         $mform->addRule('daysrequested', null, 'nonzero', null, 'client');
 
         $mform->addElement('textarea', 'reason', get_string('extensionreason', 'local_extendmanualenrol'),
-<<<<<<< HEAD
-                    array('rows' => 5, 'cols' => 50));
-=======
                     ['rows' => 5, 'cols' => 50]);
->>>>>>> 9e27c78 (Fixed PHP coding style problems)
         $mform->setType('reason', PARAM_TEXT);
         $mform->addRule('reason', null, 'required', null, 'client');
 

@@ -31,4 +31,4 @@ $plugin->component = 'local_extendmanualenrol';
 $plugin->version = 2025051700;
 $plugin->requires = 2022112800; // Requires Moodle 4.1+.
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.0.1';
+$plugin->release = '1.0.2';
