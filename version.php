@@ -28,7 +28,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_extendmanualenrol';
-$plugin->version = 2025051800;
+$plugin->version = 2025052000;
 $plugin->requires = 2022112800; // Requires Moodle 4.1+.
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.0.2';
+$plugin->release = '1.0.4';
