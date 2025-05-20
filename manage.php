@@ -50,7 +50,7 @@ $PAGE->set_heading($course->fullname);
 // Handle actions.
 if ($action && $requestid) {
     require_sesskey();
-    
+
     if ($action === 'approve') {
         if (\local_extendmanualenrol\manager::approve_request($requestid, $USER->id)) {
             redirect(
@@ -105,9 +105,9 @@ if (empty($requests)) {
                 'requestid' => $request->id,
                 'sesskey' => sesskey(),
             ]);
-            $actionbuttons = html_writer::link($approveurl, get_string('approve', 'local_extendmanualenrol'), 
+            $actionbuttons = html_writer::link($approveurl, get_string('approve', 'local_extendmanualenrol'),
                                              ['class' => 'btn btn-success mr-2']) .
-                           html_writer::link($denyurl, get_string('deny', 'local_extendmanualenrol'), 
+                           html_writer::link($denyurl, get_string('deny', 'local_extendmanualenrol'),
                                              ['class' => 'btn btn-danger']);
         }
 

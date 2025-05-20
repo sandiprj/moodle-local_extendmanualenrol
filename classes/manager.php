@@ -28,8 +28,6 @@
 
 namespace local_extendmanualenrol;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Extension manager class
  *
@@ -148,7 +146,7 @@ class manager {
                 WHERE e.courseid = :courseid
                 ORDER BY e.timecreated DESC";
 
-        return $DB->get_records_sql($sql, ['courseid' => $courseid,]);
+        return $DB->get_records_sql($sql, ['courseid' => $courseid]);
     }
 
     /**

@@ -74,7 +74,6 @@ class request_form extends \moodleform {
      */
     public function validation($data, $files) {
         $errors = parent::validation($data, $files);
-        
         if (!empty($data['daysrequested'])) {
             if ($data['daysrequested'] <= 0) {
                 $errors['daysrequested'] = get_string('invalidnum', 'error');

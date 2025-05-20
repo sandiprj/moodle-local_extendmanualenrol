@@ -35,12 +35,12 @@
  */
 function local_extendmanualenrol_extend_navigation_course($navigation, $course, $context) {
     global $USER, $DB;
-    
+
     // Check if user is enrolled via manual enrolment and has an end date.
     $instances = enrol_get_instances($course->id, true);
     $manualenrolled = false;
     $hasendate = false;
-    
+
     foreach ($instances as $instance) {
         if ($instance->enrol === 'manual') {
             $ue = $DB->get_record('user_enrolments', [
@@ -48,7 +48,7 @@ function local_extendmanualenrol_extend_navigation_course($navigation, $course, 
                 'userid' => $USER->id,
                 'status' => ENROL_USER_ACTIVE
             ]);
-            
+
             if ($ue && is_enrolled($context, $USER->id, '', true)) {
                 $manualenrolled = true;
                 if (!empty($ue->timeend)) {
@@ -60,8 +60,8 @@ function local_extendmanualenrol_extend_navigation_course($navigation, $course, 
     }
 
     // Add request extension link for students who have an end date.
-    if (has_capability('local/extendmanualenrol:requestextension', $context) 
-        && $manualenrolled 
+    if (has_capability('local/extendmanualenrol:requestextension', $context)
+        && $manualenrolled
         && $hasendate) {
         $url = new moodle_url('/local/extendmanualenrol/request.php', ['courseid' => $course->id]);
         $navigation->add(
