@@ -46,7 +46,7 @@ function local_extendmanualenrol_extend_navigation_course($navigation, $course, 
             $ue = $DB->get_record('user_enrolments', [
                 'enrolid' => $instance->id,
                 'userid' => $USER->id,
-                'status' => ENROL_USER_ACTIVE
+                'status' => ENROL_USER_ACTIVE,
             ]);
 
             if ($ue && is_enrolled($context, $USER->id, '', true)) {

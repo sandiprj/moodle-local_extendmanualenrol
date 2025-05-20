@@ -29,7 +29,7 @@
 namespace local_extendmanualenrol\privacy;
 
 use core_privacy\local\metadata\collection;
-use core_privacy\local\request\approved_contextlist; 
+use core_privacy\local\request\approved_contextlist;
 use core_privacy\local\request\approved_userlist;
 use core_privacy\local\request\contextlist;
 use core_privacy\local\request\helper;
@@ -46,7 +46,7 @@ use context_course;
  * @copyright  2025 Sandip R <radadiyasandip89@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class provider implements 
+class provider implements
         \core_privacy\local\metadata\provider,
         \core_privacy\local\request\core_userlist_provider,
         \core_privacy\local\request\plugin\provider {
@@ -69,7 +69,7 @@ class provider implements
                 'approverid' => 'privacy:metadata:local_extendmanualenrol:approverid',
                 'timecreated' => 'privacy:metadata:local_extendmanualenrol:timecreated',
                 'timemodified' => 'privacy:metadata:local_extendmanualenrol:timemodified',
-                'timeapproved' => 'privacy:metadata:local_extendmanualenrol:timeapproved'
+                'timeapproved' => 'privacy:metadata:local_extendmanualenrol:timeapproved',
             ],
             'privacy:metadata:local_extendmanualenrol'
         );
@@ -166,7 +166,7 @@ class provider implements
 
         foreach ($requests as $request) {
             $context = \context::instance_by_id($request->contextid);
-            
+
             $data = (object) [
                 'courseid' => $request->courseid,
                 'daysrequested' => $request->daysrequested,
@@ -222,7 +222,7 @@ class provider implements
 
             $DB->delete_records('local_extendmanualenrol', [
                 'courseid' => $context->instanceid,
-                'userid' => $userid
+                'userid' => $userid,
             ]);
 
             // We only delete approver data if there is no user data associated with it.
